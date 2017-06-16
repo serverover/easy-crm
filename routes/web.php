@@ -16,5 +16,16 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::group(['middleware' => ['auth']], function () {
+    /**
+     * Users
+     */
+    // Route::group(['prefix' => 'users'], function () {
+    //     Route::get('/data', 'UsersController@anyData')->name('users.data');
+    //     Route::get('/taskdata/{id}', 'UsersController@taskData')->name('users.taskdata');
+    //     Route::get('/leaddata/{id}', 'UsersController@leadData')->name('users.leaddata');
+    //     Route::get('/clientdata/{id}', 'UsersController@clientData')->name('users.clientdata');
+    // });
+    Route::resource('users', 'UsersController');
+});
 Route::get('/home', 'HomeController@index')->name('home');
