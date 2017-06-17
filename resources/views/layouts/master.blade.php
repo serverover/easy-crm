@@ -23,7 +23,7 @@
 			<div class="contain">
 				<ul class="am-nav am-navbar-nav am-navbar-left">
 
-					<li><h4 class="page-title">基本表格</h4></li>
+					<li><h4 class="page-title">@yield('heading')</h4></li>
 				</ul>
 
 				<ul class="am-nav am-navbar-nav am-navbar-right">
@@ -56,7 +56,7 @@
 										<img src="/src/assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
 										<div class="user-status offline"><i class="am-icon-dot-circle-o" aria-hidden="true"></i></div>
 								</div>
-								<h5><a href="#">Mat Helme</a> </h5>
+								<h5><a href="/users">{{ Auth::user()->name }}</a> </h5>
 								<ul class="list-inline">
 										<li>
 												<a href="#">
@@ -74,12 +74,13 @@
 							<!-- End User -->
 
 						 <ul class="am-list admin-sidebar-list">
-						    <li><a href="#"><span class="am-icon-home"></span> 首页</a></li>
+							 	<li><a href="/home"><span class="am-icon-home"></span> 首页</a></li>
+						    <li><a href="/users"><span class="am-icon-user"></span> 个人简介</a></li>
 						    <li class="admin-parent">
-						      <a class="am-cf am-collapsed" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 表格 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+						      <a class="am-cf am-collapsed" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-tag"></span> 客户 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 						      <ul class="am-list admin-sidebar-sub am-collapse" id="collapse-nav1">
-						        <li><a href="#" class="am-cf"> 基本表格</span></a></li>
-						        <li><a href="#">完整表格</a></li>
+						        <li><a href="/clients" class="am-cf"> 所有客户</span></a></li>
+						        <li><a href="/clients/create">新建客户</a></li>
 						      </ul>
 						    </li>
 						    <li class="admin-parent">
@@ -93,6 +94,13 @@
 						    <li class="admin-parent">
 						      <a class="am-cf" data-am-collapse="{target: '#collapse-nav5'}"><span class="am-icon-file"></span> 表单 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 						      <ul class="am-list admin-sidebar-sub am-collapse" id="collapse-nav5">
+						        <li><a href="#" class="am-cf"> 基本表单</a></li>
+						        <li><a href="#">表单验证</a></li>
+						      </ul>
+						    </li>
+								<li class="admin-parent">
+						      <a class="am-cf" data-am-collapse="{target: '#collapse-nav6'}"><span class="am-icon-file"></span> 表单 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+						      <ul class="am-list admin-sidebar-sub am-collapse" id="collapse-nav6">
 						        <li><a href="#" class="am-cf"> 基本表单</a></li>
 						        <li><a href="#">表单验证</a></li>
 						      </ul>

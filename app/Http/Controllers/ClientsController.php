@@ -4,22 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\User;
-use App\Repositories\User\UserRepositoryContract;
-
-class UsersController extends Controller
+class ClientsController extends Controller
 {
-    protected $users;
-
-    public function __construct(
-        UserRepositoryContract $users
-    ) {
-        $this->users = $users;
-    }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        return view('users.index');
+        //
     }
 
     /**
@@ -44,18 +38,14 @@ class UsersController extends Controller
     }
 
     /**
-     * @param $id
-     * @return mixed
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return $this->users->find($id);
-        return view('users.show', [
-          'user' => $this->users->find($id),
-          'companyname' => $this->settings->getCompanyName(),
-          'task_statistics' => $this->tasks->totalOpenAndClosedTasks($id),
-          'lead_statistics' => $this->leads->totalOpenAndClosedLeads($id)
-        ]);
+        //
     }
 
     /**
