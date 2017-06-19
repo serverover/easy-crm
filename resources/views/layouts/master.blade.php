@@ -16,6 +16,21 @@
 	<body>
 		<!-- Begin page -->
 		<header class="am-topbar am-topbar-fixed-top">
+			@if(Session::has('flash_message_warning'))
+					 <message message="{{ Session::get('flash_message_warning') }}" type="warning"></message>
+			@endif
+			@if(Session::has('flash_message'))
+					<div class="message" style=" display:none;">
+						<div class="el-message">
+							<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjQwcHgiIGhlaWdodD0iNDBweCIgdmlld0JveD0iMCAwIDQwIDQwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzOS4xICgzMTcyMCkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+aWNvbl9zdWNjZXNzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IkVsZW1lbnQtZ3VpZGVsaW5lLXYwLjIuNCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9Ik1lc3NhZ2UiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02MC4wMDAwMDAsIC0yMTIuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSLluKblgL7lkJFf5L+h5oGvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2MC4wMDAwMDAsIDIxMi4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJSZWN0YW5nbGUtMiI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Imljb25fc3VjY2VzcyI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtMiIgZmlsbD0iIzEzQ0U2NiIgeD0iMCIgeT0iMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIj48L3JlY3Q+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0yNy44MjU1ODE0LDE3LjE0ODQzNTcgTDE5LjAxNzQ0LDI1LjgyODEyMTMgQzE4LjkwMTE2MDksMjUuOTQyNzA4MyAxOC43NjU1MDMzLDI2IDE4LjYxMDQ2NywyNiBDMTguNDU1NDI3LDI2IDE4LjMxOTc2OTMsMjUuOTQyNzA4MyAxOC4yMDM0ODY1LDI1LjgyODEyMTMgTDE4LjAyOTA3MTYsMjUuNjU2MjUgTDEzLjE3NDQxODYsMjAuODQzNzUgQzEzLjA1ODEzOTUsMjAuNzI5MTYzIDEzLDIwLjU5NTQ4MzcgMTMsMjAuNDQyNzA0NyBDMTMsMjAuMjg5OTI5MyAxMy4wNTgxMzk1LDIwLjE1NjI1IDEzLjE3NDQxODYsMjAuMDQxNjY2NyBMMTQuMzY2Mjc3MiwxOC44NjcxODU3IEMxNC40ODI1NiwxOC43NTI2MDIzIDE0LjYxODIxNzcsMTguNjk1MzEwNyAxNC43NzMyNTc3LDE4LjY5NTMxMDcgQzE0LjkyODI5NCwxOC42OTUzMTA3IDE1LjA2Mzk1MTYsMTguNzUyNjAyMyAxNS4xODAyMzA3LDE4Ljg2NzE4NTcgTDE4LjYxMDQ2NywyMi4yNzYwMzggTDI1LjgxOTc2OTMsMTUuMTcxODcxMyBDMjUuOTM2MDQ4NCwxNS4wNTcyODggMjYuMDcxNzA2LDE1IDI2LjIyNjc0MjMsMTUgQzI2LjM4MTc4MjMsMTUgMjYuNTE3NDQsMTUuMDU3Mjg4IDI2LjYzMzcyMjgsMTUuMTcxODcxMyBMMjcuODI1NTgxNCwxNi4zNDYzNTIzIEMyNy45NDE4NjA1LDE2LjQ2MDkzNTcgMjgsMTYuNTk0NjE1IDI4LDE2Ljc0NzM5NCBDMjgsMTYuOTAwMTczIDI3Ljk0MTg2MDUsMTcuMDMzODUyMyAyNy44MjU1ODE0LDE3LjE0ODQzNTcgTDI3LjgyNTU4MTQsMTcuMTQ4NDM1NyBaIiBpZD0iUGF0aCIgZmlsbD0iI0ZGRkZGRiI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+" alt="" class="el-message__img">
+							<div class="el-message__group">
+								<p>{{ Session::get('flash_message') }}</p>
+								<div class="el-message__closeBtn el-icon-close">X</div>
+							</div>
+						</div>
+					</div>
+			@endif
+
 			<div class="am-topbar-left am-hide-sm-only">
           <a href="/" class="logo"><span>{{--心有猛虎--}}<span>细嗅蔷薇</span></span><i class="zmdi zmdi-layers"></i></a>
 			</div>
@@ -29,16 +44,15 @@
 				<ul class="am-nav am-navbar-nav am-navbar-right">
 					<li class="inform"><i class="am-icon-bell-o" aria-hidden="true"></i></li>
 					<li class="hidden-xs am-hide-sm-only">
-                        <form role="search" class="app-search">
-                            <input type="text" placeholder="Search..." class="form-control">
-                            <a href=""><img src="/src/assets/img/search.png"></a>
-                        </form>
-                    </li>
+              <form role="search" class="app-search">
+                  <input type="text" placeholder="Search..." class="form-control">
+                  <a href=""><img src="/src/assets/img/search.png"></a>
+              </form>
+          </li>
 				</ul>
 			</div>
 		</header>
 		<!-- end page -->
-
 
 		<div class="admin">
 			<!--<div class="am-g">-->
@@ -123,6 +137,13 @@
 		<div class="content-page">
 			<!-- Start content -->
 			<div class="content">
+				@if($errors->any())
+					<div class="alert alert-danger">
+							@foreach($errors->all() as $error)
+									<p>{{ $error }}</p>
+							@endforeach
+					</div>
+				@endif
 				@yield('content')
 			</div>
 		</div>
@@ -135,13 +156,13 @@
 		<a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 
 		<script type="text/javascript" src="/src/assets/js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="/js/index.js"></script>
 		<script type="text/javascript" src="/src/assets/js/fastclick.js" ></script>
 		<script type="text/javascript" src="/src/assets/js/amazeui.min.js"></script>
 		<script type="text/javascript" src="/src/assets/js/app.js" ></script>
 		<script type="text/javascript" src="/src/assets/js/blockUI.js" ></script>
 		<script type="text/javascript" src="/src/assets/js/charts/echarts.min.js" ></script>
 		<script type="text/javascript" src="/src/assets/js/charts/indexChart.js" ></script>
-
 	</body>
 
 </html>

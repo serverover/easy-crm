@@ -8,6 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -15,15 +21,79 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'address', 'personal_number',
+        'work_number', 'image_path'
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
+    protected $dates = [
+        'trial_ends_at', 'subscription_ends_at'
     ];
+    protected $hidden = [
+        'password', 'password_confirmation', 'remember_token'
+    ];
+
+    protected $primaryKey = 'id';
+
+    public function tasks()
+    {
+        return $this->hasMany(Models\Task::class, 'user_assigned_id', 'id');
+    }
+
+    public function leads()
+    {
+        return $this->hasMany(Models\Lead::class, 'user_id', 'id');
+    }
+
+    public function department()
+    {
+        return $this->belongsToMany(Models\Department::class, 'department_user')
+            ->withPivot('department_id');
+    }
+
+    public function userRole()
+    {
+        return $this->hasOne(Models\RoleUser::class, 'user_id', 'id');
+    }
+
+    public function isOnline()
+    {
+        return Cache::has('user-is-online-' . $this->id);
+    }
+
+    public function getNameAndDepartmentAttribute()
+    {
+        return $this->name . ' ' . '(' . $this->department()->first()->name . ')';
+    }
+
+    public function moveTasks($user_id)
+    {
+        $tasks = $this->tasks()->get();
+        foreach ($tasks as $task) {
+            $task->user_assigned_id = $user_id;
+            $task->save();
+        }
+    }
+
+    public function moveLeads($user_id)
+    {
+        $leads = $this->leads()->get();
+        foreach ($leads as $lead) {
+            $lead->user_assigned_id = $user_id;
+            $lead->save();
+        }
+    }
+
+    public function moveClients($user_id)
+    {
+        $clients = $this->clients()->get();
+        foreach ($clients as $client) {
+            $client->user_id = $user_id;
+            $client->save();
+        }
+    }
 }

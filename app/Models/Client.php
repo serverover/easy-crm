@@ -17,15 +17,17 @@ class Client extends Model
         'primary_number',
         'secondary_number',
         'industry_id',
+        'industry',
         'company_type',
-        'user_id'];
+        'user_id'
+    ];
 
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-   public function tasks()
+    public function tasks()
     {
         return $this->hasMany(Task::class, 'client_id', 'id')
             ->orderBy('status', 'asc')
@@ -51,6 +53,6 @@ class Client extends Model
 
     public function getAssignedUserAttribute()
     {
-        return User::findOrFail($this->user_id);
+        return \App\User::findOrFail($this->user_id);
     }
 }

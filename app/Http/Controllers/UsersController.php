@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\User;
+// use App\Models\User;
 use App\Repositories\User\UserRepositoryContract;
 
 class UsersController extends Controller
@@ -40,7 +40,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return 11;
     }
 
     /**
@@ -49,12 +49,11 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        return $this->users->find($id);
         return view('users.show', [
           'user' => $this->users->find($id),
-          'companyname' => $this->settings->getCompanyName(),
-          'task_statistics' => $this->tasks->totalOpenAndClosedTasks($id),
-          'lead_statistics' => $this->leads->totalOpenAndClosedLeads($id)
+          // 'companyname' => $this->settings->getCompanyName(),
+          // 'task_statistics' => $this->tasks->totalOpenAndClosedTasks($id),
+          // 'lead_statistics' => $this->leads->totalOpenAndClosedLeads($id)
         ]);
     }
 

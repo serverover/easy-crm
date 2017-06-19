@@ -6,6 +6,49 @@
 
           <div class="am-g">
   					<!-- Row start -->
+            <div class="am-u-sm-6">
+              <div class="card-box">
+                <!-- col start -->
+                  <table class="am-table  am-table-hover">
+                    <thead>
+                        <tr>
+                            <th>网站名称</th>
+                            <th>网址</th>
+                            <th>创建时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Amaze UI</td>
+                            <td>http://amazeui.org</td>
+                            <td>2012-10-01</td>
+                        </tr>
+                        <tr>
+                            <td>Amaze UI</td>
+                            <td>http://amazeui.org</td>
+                            <td>2012-10-01</td>
+                        </tr>
+                        <tr>
+                            <td>Amaze UI</td>
+                            <td>http://amazeui.org</td>
+                            <td>2012-10-01</td>
+                        </tr>
+                        <tr>
+                            <td>Amaze UI</td>
+                            <td>http://amazeui.org</td>
+                            <td>2012-10-01</td>
+                        </tr>
+                        <tr>
+                            <td>Amaze UI</td>
+                            <td>http://amazeui.org</td>
+                            <td>2012-10-01</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- col end -->
+              </div>
+            </div>
+
   						<div class="am-u-sm-6">
   							<div class="card-box">
                   <!-- User -->
@@ -18,7 +61,7 @@
                     <ul class="list-inline">
                         <li>
                             <a href="#">
-                                <i class="fa fa-cog" aria-hidden="true"></i>nelwkrgnr
+                                <i class="fa fa-cog" aria-hidden="true"></i>个人情况
                             </a>
                         </li>
 
@@ -81,49 +124,6 @@
                               </tbody>
                           </table>
                           <!-- col end -->
-  							</div>
-  						</div>
-
-  						<div class="am-u-sm-6">
-  							<div class="card-box">
-  								<!-- col start -->
-  									<table class="am-table  am-table-hover">
-  								    <thead>
-  								        <tr>
-  								            <th>网站名称</th>
-  								            <th>网址</th>
-  								            <th>创建时间</th>
-  								        </tr>
-  								    </thead>
-  								    <tbody>
-  								        <tr>
-  								            <td>Amaze UI</td>
-  								            <td>http://amazeui.org</td>
-  								            <td>2012-10-01</td>
-  								        </tr>
-  								        <tr>
-  								            <td>Amaze UI</td>
-  								            <td>http://amazeui.org</td>
-  								            <td>2012-10-01</td>
-  								        </tr>
-  								        <tr>
-  								            <td>Amaze UI</td>
-  								            <td>http://amazeui.org</td>
-  								            <td>2012-10-01</td>
-  								        </tr>
-  								        <tr>
-  								            <td>Amaze UI</td>
-  								            <td>http://amazeui.org</td>
-  								            <td>2012-10-01</td>
-  								        </tr>
-  								        <tr>
-  								            <td>Amaze UI</td>
-  								            <td>http://amazeui.org</td>
-  								            <td>2012-10-01</td>
-  								        </tr>
-  								    </tbody>
-  								</table>
-  								<!-- col end -->
   							</div>
   						</div>
   					<!-- Row end -->

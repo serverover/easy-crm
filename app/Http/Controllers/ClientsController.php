@@ -4,8 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\Client\StoreClientRequest;
+
+use App\Repositories\Clients\ClientsRepositoryContract;
+use App\Repositories\User\UserRepositoryContract;
+
 class ClientsController extends Controller
 {
+    protected $clients;
+    protected $users;
+
+    public function __construct(
+        ClientsRepositoryContract $clients,
+        UserRepositoryContract $users
+    ) {
+        $this->clients = $clients;
+        $this->users = $users;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +28,9 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        //
+        return view('clients.index', [
+            'clients' => $this->clients->getPage(10)
+        ]);
     }
 
     /**
@@ -23,7 +40,10 @@ class ClientsController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create', [
+            'industries' => $this->clients->listAllIndustries(),
+            'users' => $this->users->getAllUsersWithDepartments(),
+        ]);
     }
 
     /**
@@ -32,9 +52,10 @@ class ClientsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreClientRequest $request)
     {
-        //
+        $this->clients->create($request->all());
+        return redirect()->route('clients.index');
     }
 
     /**
